@@ -1,4 +1,4 @@
-package addressbook;
+package addressbook.module;
 
 public class GroupData {
     private final String name;
