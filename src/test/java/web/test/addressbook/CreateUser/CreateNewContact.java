@@ -12,15 +12,15 @@ public class CreateNewContact {
   public void setUp() {
     wd = new FirefoxDriver();
     wd.get("http://localhost/addressbook/");
-    login();
+    login("admin", "secret");
   }
 
-  private void login() {
+  private void login(String username, String password) {
     wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys("admin");
+    wd.findElement(By.name("user")).sendKeys(username);
     wd.findElement(By.name("pass")).click();
     wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys("secret");
+    wd.findElement(By.name("pass")).sendKeys(password);
     wd.findElement(By.xpath("//input[@value='Login']")).click();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
@@ -28,7 +28,7 @@ public class CreateNewContact {
   @Test
   public void testCreateNewContact() {
     goToUserPage();
-    fillUserForm();
+    fillUserForm(new GroupData("User", "User", "Infotecs"));
     submitUserCreation();
     returnToHomePage();
 
@@ -42,17 +42,17 @@ public class CreateNewContact {
     wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
   }
 
-  private void fillUserForm() {
+  private void fillUserForm(GroupData groupData) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys("User");
+    wd.findElement(By.name("firstname")).sendKeys(groupData.getFirstname());
     wd.findElement(By.name("lastname")).click();
     wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys("User");
+    wd.findElement(By.name("lastname")).sendKeys(groupData.getLastname());
     wd.findElement(By.name("company")).click();
     wd.findElement(By.name("company")).click();
     wd.findElement(By.name("company")).clear();
-    wd.findElement(By.name("company")).sendKeys("Infotecs");
+    wd.findElement(By.name("company")).sendKeys(groupData.getCompany());
   }
 
   private void goToUserPage() {
