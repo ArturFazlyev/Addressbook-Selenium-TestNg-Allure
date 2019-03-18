@@ -5,6 +5,7 @@ public class GroupData {
     private final String lastname;
     private final String company;
 
+
     public GroupData(String firstname, String lastname, String company) {
         this.firstname = firstname;
         this.lastname = lastname;
