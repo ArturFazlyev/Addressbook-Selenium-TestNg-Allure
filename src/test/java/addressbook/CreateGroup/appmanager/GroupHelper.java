@@ -1,6 +1,6 @@
-package addressbook.appmanager;
+package addressbook.CreateGroup.appmanager;
 
-import addressbook.module.GroupData;
+import addressbook.CreateGroup.module.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 

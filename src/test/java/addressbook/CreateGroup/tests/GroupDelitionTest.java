@@ -1,4 +1,4 @@
-package addressbook.tests;
+package addressbook.CreateGroup.tests;
 
 import org.testng.annotations.*;
 

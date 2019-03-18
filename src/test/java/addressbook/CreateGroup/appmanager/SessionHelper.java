@@ -1,4 +1,4 @@
-package addressbook.appmanager;
+package addressbook.CreateGroup.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;

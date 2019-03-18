@@ -1,6 +1,6 @@
-package addressbook.tests;
+package addressbook.CreateGroup.tests;
 
-import addressbook.appmanager.ApplicationManager;
+import addressbook.CreateGroup.appmanager.ApplicationManager;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 

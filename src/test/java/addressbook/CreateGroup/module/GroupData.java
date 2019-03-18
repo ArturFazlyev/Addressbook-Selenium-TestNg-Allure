@@ -1,4 +1,4 @@
-package addressbook.module;
+package addressbook.CreateGroup.module;
 
 public class GroupData {
     private final String name;
