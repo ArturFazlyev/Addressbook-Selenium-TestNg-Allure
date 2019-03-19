@@ -1,4 +1,4 @@
-package web.test.addressbook.CreateUser;
+package web.test.addressbook.CreateUser.module;
 
 public class ContactData {
     private final String firstname;

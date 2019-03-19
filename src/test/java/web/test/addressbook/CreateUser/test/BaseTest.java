@@ -1,7 +1,8 @@
-package web.test.addressbook.CreateUser;
+package web.test.addressbook.CreateUser.test;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import web.test.addressbook.CreateUser.applicationmanager.AppManage;
 
 public class BaseTest {
 

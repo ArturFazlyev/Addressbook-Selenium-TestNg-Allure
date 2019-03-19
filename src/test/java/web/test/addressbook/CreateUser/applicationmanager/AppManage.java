@@ -1,23 +1,24 @@
-package web.test.addressbook.CreateUser;
+package web.test.addressbook.CreateUser.applicationmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import web.test.addressbook.CreateUser.module.ContactData;
 
 import java.util.concurrent.TimeUnit;
 
 public class AppManage {
     public WebDriver wd;
 
-    protected void init() {
+    public void init() {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/");
         login("admin", "secret");
     }
 
-    private void login(String username, String password) {
+    public void login(String username, String password) {
       wd.findElement(By.name("user")).click();
       wd.findElement(By.name("user")).clear();
       wd.findElement(By.name("user")).sendKeys(username);
@@ -27,15 +28,15 @@ public class AppManage {
       wd.findElement(By.xpath("//input[@value='Login']")).click();
     }
 
-    protected void returnHomePage() {
+    public void returnHomePage() {
       wd.findElement(By.linkText("home page")).click();
     }
 
-    protected void submitNewContact() {
+    public void submitNewContact() {
       wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
     }
 
-    protected void createNewContact(ContactData contactData) {
+    public void createNewContact(ContactData contactData) {
       wd.findElement(By.name("firstname")).click();
       wd.findElement(By.name("firstname")).clear();
       wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
@@ -75,11 +76,11 @@ public class AppManage {
       wd.findElement(By.name("byear")).sendKeys(contactData.getByear());
     }
 
-    protected void gotoNewContact() {
+    public void gotoNewContact() {
       wd.findElement(By.linkText("add new")).click();
     }
 
-    protected void close() {
+    public void close() {
         wd.findElement(By.linkText("Logout")).click();
         wd.quit();
     }
