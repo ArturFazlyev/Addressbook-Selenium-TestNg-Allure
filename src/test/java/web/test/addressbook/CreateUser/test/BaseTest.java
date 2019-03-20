@@ -15,7 +15,7 @@ public class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        appManage.close();
+        appManage.getSessionHelper().close();
 
     }
 
