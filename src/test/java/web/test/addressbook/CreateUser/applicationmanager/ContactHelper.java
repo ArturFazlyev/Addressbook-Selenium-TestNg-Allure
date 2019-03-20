@@ -7,6 +7,7 @@ import web.test.addressbook.CreateUser.module.ContactData;
 
 public class ContactHelper extends HelperBase {
 
+
     public ContactHelper(FirefoxDriver wd) {
         super(wd);
     }
@@ -48,4 +49,15 @@ public class ContactHelper extends HelperBase {
 
     }
 
+    public void deleteContact() {
+        click(By.name("selected[]"));
+        click(By.xpath("//input[@value='Delete']"));
+        closeAlert();
     }
+
+    private void closeAlert() {
+        wd.switchTo().alert().accept();
+
+
+    }
+}
