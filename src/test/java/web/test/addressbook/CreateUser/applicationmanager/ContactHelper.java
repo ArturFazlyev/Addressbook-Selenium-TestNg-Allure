@@ -2,7 +2,6 @@ package web.test.addressbook.CreateUser.applicationmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 import web.test.addressbook.CreateUser.module.ContactData;
 
 public class ContactHelper extends HelperBase {

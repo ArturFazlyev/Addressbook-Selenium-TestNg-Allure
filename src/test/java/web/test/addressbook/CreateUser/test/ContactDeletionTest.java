@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 public class ContactDeletionTest extends BaseTest {
 
     @Test
-    public void testContactDeletition(){
+    public void testContactDeletition() {
         appManage.getContactHelper().deleteContact();
         appManage.getSessionHelper();
 

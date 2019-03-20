@@ -7,10 +7,10 @@ public class NavigationHelper extends HelperBase {
 
     public NavigationHelper(FirefoxDriver wd) {
         super(wd);
-        this.wd=wd;
+        this.wd = wd;
     }
 
     public void gotoNewContact() {
-      click((By.linkText("add new")));
+        click((By.linkText("add new")));
     }
 }
