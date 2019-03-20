@@ -24,7 +24,6 @@ public class ContactHelper extends HelperBase {
         type(By.name("lastname"), contactData.getLastname());
         type(By.name("nickname"), contactData.getNickname());
         type(By.name("title"), contactData.getTitle());
-        click(By.name("theform"));
         type(By.name("company"), contactData.getCompany());
         type(By.name("address"), contactData.getAddress());
         type(By.name("home"), contactData.getHome());
@@ -39,4 +38,14 @@ public class ContactHelper extends HelperBase {
         type(By.name("byear"), contactData.getByear());
     }
 
-}
+
+    public void submitContactUpdate() {
+        click(By.xpath("(//input[@name='update'])[2]"));
+    }
+
+    public void initContactModification() {
+        click(By.xpath("//img[@alt='Edit']"));
+
+    }
+
+    }
