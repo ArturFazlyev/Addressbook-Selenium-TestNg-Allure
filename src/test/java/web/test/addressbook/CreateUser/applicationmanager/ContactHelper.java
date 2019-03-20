@@ -55,9 +55,4 @@ public class ContactHelper extends HelperBase {
         closeAlert();
     }
 
-    private void closeAlert() {
-        wd.switchTo().alert().accept();
-
-
-    }
 }
