@@ -1,7 +1,7 @@
-package web.test.addressbook.CreateUser.test;
+package sandbox.addressbook.test.test;
 
 import org.testng.annotations.*;
-import web.test.addressbook.CreateUser.module.GroupData;
+import sandbox.addressbook.test.module.GroupData;
 
 public class GroupCreationTest extends BaseTest {
 

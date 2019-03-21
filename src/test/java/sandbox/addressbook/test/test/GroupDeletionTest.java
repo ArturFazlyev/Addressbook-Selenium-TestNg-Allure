@@ -1,4 +1,4 @@
-package web.test.addressbook.CreateUser.test;
+package sandbox.addressbook.test.test;
 
 import org.testng.annotations.*;
 

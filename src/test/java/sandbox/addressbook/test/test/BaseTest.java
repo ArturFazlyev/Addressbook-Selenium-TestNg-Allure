@@ -1,12 +1,12 @@
-package web.test.addressbook.CreateUser.test;
+package sandbox.addressbook.test.test;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import web.test.addressbook.CreateUser.applicationmanager.AppManage;
+import sandbox.addressbook.test.applicationmanager.ApplicationManager;
 
 public class BaseTest {
 
-    protected final AppManage appManage = new AppManage();
+    protected final ApplicationManager appManage = new ApplicationManager();
 
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
@@ -21,7 +21,7 @@ public class BaseTest {
     }
 
 
-    public AppManage getAppManage() {
+    public ApplicationManager getAppManage() {
         return appManage;
     }
 }

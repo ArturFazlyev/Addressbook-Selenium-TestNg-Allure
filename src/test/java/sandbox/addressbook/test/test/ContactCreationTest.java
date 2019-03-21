@@ -1,7 +1,7 @@
-package web.test.addressbook.CreateUser.test;
+package sandbox.addressbook.test.test;
 
 import org.testng.annotations.*;
-import web.test.addressbook.CreateUser.module.ContactData;
+import sandbox.addressbook.test.module.ContactData;
 
 public class ContactCreationTest extends BaseTest {
 

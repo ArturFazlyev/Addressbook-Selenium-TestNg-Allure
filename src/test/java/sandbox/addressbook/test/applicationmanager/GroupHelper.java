@@ -1,8 +1,8 @@
-package web.test.addressbook.CreateUser.applicationmanager;
+package sandbox.addressbook.test.applicationmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import web.test.addressbook.CreateUser.module.GroupData;
+import sandbox.addressbook.test.module.GroupData;
 
 public class GroupHelper extends HelperBase {
 

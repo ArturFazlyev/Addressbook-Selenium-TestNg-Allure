@@ -1,4 +1,4 @@
-package web.test.addressbook.CreateUser.module;
+package sandbox.addressbook.test.module;
 
 public class ContactData {
     private final String firstname;
