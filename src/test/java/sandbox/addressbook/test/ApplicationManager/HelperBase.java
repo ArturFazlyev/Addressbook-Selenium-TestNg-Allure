@@ -1,4 +1,4 @@
-package sandbox.addressbook.test.applicationmanager;
+package sandbox.addressbook.test.ApplicationManager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;

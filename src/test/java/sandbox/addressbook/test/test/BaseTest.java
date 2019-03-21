@@ -2,7 +2,7 @@ package sandbox.addressbook.test.test;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import sandbox.addressbook.test.applicationmanager.ApplicationManager;
+import sandbox.addressbook.test.ApplicationManager.ApplicationManager;
 
 public class BaseTest {
 
