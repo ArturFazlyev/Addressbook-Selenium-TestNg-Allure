@@ -13,11 +13,13 @@ public class BaseTest {
         appManage.init();
     }
 
+
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         appManage.getSessionHelper().close();
 
     }
+
 
     public AppManage getAppManage() {
         return appManage;
