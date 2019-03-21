@@ -20,22 +20,22 @@ public class ContactHelper extends HelperBase {
     }
 
     public void createNewContact(ContactData contactData) {
-        type(By.name("firstname"), contactData.getFirstname());
-        type(By.name("lastname"), contactData.getLastname());
-        type(By.name("nickname"), contactData.getNickname());
-        type(By.name("title"), contactData.getTitle());
-        type(By.name("company"), contactData.getCompany());
-        type(By.name("address"), contactData.getAddress());
-        type(By.name("home"), contactData.getHome());
-        type(By.name("mobile"), contactData.getMobile());
-        type(By.name("email"), contactData.getEmail());
+        type(("firstname"), contactData.getFirstname());
+        type(("lastname"), contactData.getLastname());
+        type(("nickname"), contactData.getNickname());
+        type(("title"), contactData.getTitle());
+        type(("company"), contactData.getCompany());
+        type(("address"), contactData.getAddress());
+        type(("home"), contactData.getHome());
+        type(("mobile"), contactData.getMobile());
+        type(("email"), contactData.getEmail());
         click(By.name("bday"));
         select(By.name("bday"), contactData.getBday());
         click(By.xpath("//option[@value='17']"));
         click(By.name("bmonth"));
         select(By.name("bmonth"), contactData.getBmonth());
         click(By.xpath("//option[@value='January']"));
-        type(By.name("byear"), contactData.getByear());
+        type(("byear"), contactData.getByear());
     }
 
 
@@ -52,6 +52,12 @@ public class ContactHelper extends HelperBase {
         click(By.name("selected[]"));
         click(By.xpath("//input[@value='Delete']"));
         closeAlert();
+    }
+
+    public void closeAlert() {
+        wd.switchTo().alert().accept();
+
+
     }
 
 }

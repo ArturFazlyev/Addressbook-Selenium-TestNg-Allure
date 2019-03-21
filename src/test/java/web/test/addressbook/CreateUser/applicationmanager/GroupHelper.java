@@ -4,11 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import web.test.addressbook.CreateUser.module.GroupData;
 
-public class GroupHelper extends HelperBase{
+public class GroupHelper extends HelperBase {
 
     public GroupHelper(FirefoxDriver wd) {
         super(wd);
-        this.wd=wd;
+        this.wd = wd;
     }
 
     public void returnToGroupPage() {
@@ -16,9 +16,8 @@ public class GroupHelper extends HelperBase{
     }
 
 
-
     public void sumbitCreateGroup() {
-      wd.findElement(By.name("submit")).click();
+        wd.findElement(By.name("submit")).click();
     }
 
     public void fillGroupFields(GroupData groupData) {
@@ -28,18 +27,26 @@ public class GroupHelper extends HelperBase{
     }
 
     public void initNewGroup() {
-      wd.findElement(By.name("new")).click();
+        wd.findElement(By.name("new")).click();
     }
 
     public void goToGroupPage() {
-      wd.findElement(By.linkText("groups")).click();
+        wd.findElement(By.linkText("groups")).click();
     }
 
     public void deleteGroup() {
-      wd.findElement(By.name("delete")).click();
+        wd.findElement(By.name("delete")).click();
     }
 
     public void selectGroup() {
-      wd.findElement(By.name("selected[]")).click();
+        wd.findElement(By.name("selected[]")).click();
+    }
+
+    public void initGroupModification() {
+        click(By.name("edit"));
+    }
+
+    public void updateGroup() {
+        wd.findElement(By.name("update")).click();
     }
 }

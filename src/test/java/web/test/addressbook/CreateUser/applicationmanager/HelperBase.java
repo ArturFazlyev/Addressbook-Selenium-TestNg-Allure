@@ -19,21 +19,11 @@ public class HelperBase {
         wd.findElement(locator).click();
     }
 
-    public void type(By locator, String text) {
-        click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
-    }
 
 
-    protected void closeAlert() {
-        wd.switchTo().alert().accept();
 
-
-    }
-
-    protected void type(String locator, String text) {
-        wd.findElement(By.name(locator)).click();
+    public void type(String locator, String text) {
+        click(By.name(locator));
         wd.findElement(By.name(locator)).clear();
         wd.findElement(By.name(locator)).sendKeys(text);
     }
