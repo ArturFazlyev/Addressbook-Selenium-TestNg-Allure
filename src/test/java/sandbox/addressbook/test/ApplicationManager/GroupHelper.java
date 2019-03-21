@@ -24,6 +24,8 @@ public class GroupHelper extends HelperBase {
         type("group_name", groupData.getName());
         type("group_header", groupData.getHeader());
         type("group_footer", groupData.getFooter());
+
+
     }
 
     public void initNewGroup() {
