@@ -12,7 +12,11 @@ public class GroupHelper {
     }
 
     public void returnToGroupPage() {
-      wd.findElement(By.linkText("group page")).click();
+        click(By.linkText("group page"));
+    }
+
+    private void click(By locator) {
+        wd.findElement(locator).click();
     }
 
     public void sumbitCreateGroup() {
@@ -20,15 +24,15 @@ public class GroupHelper {
     }
 
     public void fillGroupFields(GroupData groupData) {
-      wd.findElement(By.name("group_name")).click();
-      wd.findElement(By.name("group_name")).clear();
-      wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
-      wd.findElement(By.name("group_header")).click();
-      wd.findElement(By.name("group_header")).clear();
-      wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
-      wd.findElement(By.name("group_footer")).click();
-      wd.findElement(By.name("group_footer")).clear();
-      wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
+        type("group_name", groupData.getName());
+        type("group_header", groupData.getHeader());
+        type("group_footer", groupData.getFooter());
+    }
+
+    private void type(String locator, String text) {
+        wd.findElement(By.name(locator)).click();
+        wd.findElement(By.name(locator)).clear();
+        wd.findElement(By.name(locator)).sendKeys(text);
     }
 
     public void initNewGroup() {
