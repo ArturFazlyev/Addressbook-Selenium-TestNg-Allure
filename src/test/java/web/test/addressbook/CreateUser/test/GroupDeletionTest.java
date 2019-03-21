@@ -1,4 +1,4 @@
-package com.example.tests;
+package web.test.addressbook.CreateUser.test;
 
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
@@ -26,9 +26,17 @@ public class GroupDeletionTest {
   @Test
   public void testGroupDeletion() throws Exception {
 
-    wd.findElement(By.name("selected[]")).click();
-    wd.findElement(By.name("delete")).click();
+    selectGroup();
+    deleteGroup();
     wd.findElement(By.linkText("group page")).click();
+  }
+
+  private void deleteGroup() {
+    wd.findElement(By.name("delete")).click();
+  }
+
+  private void selectGroup() {
+    wd.findElement(By.name("selected[]")).click();
   }
 
   @AfterMethod(alwaysRun = true)
