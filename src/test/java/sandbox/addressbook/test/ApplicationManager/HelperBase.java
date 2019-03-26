@@ -1,13 +1,13 @@
 package sandbox.addressbook.test.ApplicationManager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class HelperBase {
-    public FirefoxDriver wd;
+    public WebDriver wd;
 
-    public HelperBase(FirefoxDriver wd) {
+    public HelperBase(WebDriver wd) {
         this.wd = wd;
     }
 
