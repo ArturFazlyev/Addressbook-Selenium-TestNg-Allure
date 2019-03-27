@@ -3,7 +3,7 @@ package sandbox.addressbook.test.test;
 import org.testng.annotations.Test;
 import sandbox.addressbook.test.module.ContactData;
 
-public class ContactModificationTests extends BaseTest {
+public class ContactModificationTests extends TestBase {
 
     @Test
     public void testContactModification(){

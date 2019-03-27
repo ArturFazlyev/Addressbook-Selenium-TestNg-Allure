@@ -20,11 +20,11 @@ public class HelperBase {
     }
 
 
-
-
     public void type(String locator, String text) {
         click(By.name(locator));
-        wd.findElement(By.name(locator)).clear();
-        wd.findElement(By.name(locator)).sendKeys(text);
+        if (text != null) {
+            wd.findElement(By.name(locator)).clear();
+            wd.findElement(By.name(locator)).sendKeys(text);
+        }
     }
 }
