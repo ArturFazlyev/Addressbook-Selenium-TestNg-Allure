@@ -80,4 +80,9 @@ public class ContactData {
     public String getByear() {
         return byear;
     }
+
+
+    public String getGroup() {
+        return group;
+    }
 }
