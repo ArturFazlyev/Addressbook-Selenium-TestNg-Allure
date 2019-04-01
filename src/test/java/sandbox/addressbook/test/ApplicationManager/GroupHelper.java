@@ -32,9 +32,6 @@ public class GroupHelper extends HelperBase {
         wd.findElement(By.name("new")).click();
     }
 
-    public void goToGroupPage() {
-        wd.findElement(By.linkText("groups")).click();
-    }
 
     public void deleteGroup() {
         wd.findElement(By.name("delete")).click();
@@ -50,5 +47,16 @@ public class GroupHelper extends HelperBase {
 
     public void updateGroup() {
         wd.findElement(By.name("update")).click();
+    }
+
+    public void createGroup(GroupData group) {
+        initNewGroup();
+        fillGroupFields(group);
+        sumbitCreateGroup();
+        returnToGroupPage();
+    }
+
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected"));
     }
 }
