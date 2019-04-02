@@ -8,7 +8,7 @@ public class ContactCreationTest extends TestBase {
     @Test
     public void initContactCreation() {
         appManage.getNavigationHelper().gotoNewContact();
-        appManage.getContactHelper().createNewContact(new ContactData("James", "Jones",
+        appManage.getContactHelper().fillContactForm(new ContactData("James", "Jones",
                 "Jam.Jones", "QA", "Infotecs",
                 "Manchester, Stadium Old Trafford", "2780857",
                 "89053555178", "james.jones@oldtrafford.com",

@@ -9,7 +9,8 @@ public class GroupCreationTest extends TestBase {
   public void testGroupCreation() throws Exception {
     appManage.getNavigationHelper().goToGroupPage();
     appManage.getGroupHelper().initNewGroup();
-    appManage.getGroupHelper().fillGroupFields(new GroupData("test1", "test2", "test3"));
+    appManage.getGroupHelper().fillGroupFields(new GroupData("test1",
+            "test2", "test3"));
     appManage.getGroupHelper().sumbitCreateGroup();
     appManage.getGroupHelper().returnToGroupPage();
   }

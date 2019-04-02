@@ -22,7 +22,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("(//input[@name='submit'])[2]"));
     }
 
-    public void fillContactForm(ContactData contactData, boolean creation) {
+    public void fillContactForm(ContactData contactData) {
         type(("firstname"), contactData.getFirstname());
         type(("lastname"), contactData.getLastname());
         type(("nickname"), contactData.getNickname());
@@ -40,13 +40,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//option[@value='January']"));
         type(("byear"), contactData.getByear());
 
-        if (creation) {
-            new Select(wd.findElement(By.name("new_group")))
-                    .selectByVisibleText(contactData.getGroup());
 
-        } else {
-                Assert.assertFalse(isElementPresent(By.name("new_group")));
-        }
     }
 
 
@@ -71,4 +65,14 @@ public class ContactHelper extends HelperBase {
 
     }
 
+    public void createContact(ContactData contact) {
+        fillContactForm(contact);
+        submitNewContact();
+        returnHomePage();
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
+
+    }
 }
