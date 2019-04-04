@@ -1,5 +1,6 @@
 package sandbox.addressbook.test.test;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import sandbox.addressbook.test.module.ContactData;
 
@@ -17,6 +18,7 @@ public class ContactDeletionTest extends TestBase {
         }
         appManage.getContactHelper().deleteContact();
         appManage.getSessionHelper();
+        int after = appManage.getGroupHelper().getGroupCount();
 
 
     }
