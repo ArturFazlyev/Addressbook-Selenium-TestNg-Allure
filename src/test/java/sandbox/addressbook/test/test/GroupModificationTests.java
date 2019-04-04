@@ -8,12 +8,12 @@ public class GroupModificationTests extends TestBase {
 
     @Test
     public void testGroupCreation() {
-        int before = appManage.getGroupHelper().getGroupCount();
         appManage.getNavigationHelper().goToGroupPage();
         if (!appManage.getGroupHelper().isThereAGroup()) {
             appManage.getGroupHelper().createGroup(new GroupData("test1", null,
                     null));
         }
+        int before = appManage.getGroupHelper().getGroupCount();
         appManage.getGroupHelper().selectGroup();
         appManage.getGroupHelper().initGroupModification();
         appManage.getGroupHelper().fillGroupFields(new GroupData("test1",
