@@ -9,9 +9,6 @@ public class GroupCreationTest extends TestBase {
   @Test
   public void testGroupCreation() throws Exception {
     appManage.getNavigationHelper().goToGroupPage();
-    if (appManage.getGroupHelper().isThereAGroup()) {
-      appManage.getGroupHelper().deleteSelectGroup();
-    }
     int before = appManage.getGroupHelper().getGroupCount();
     appManage.getGroupHelper().createGroup((new GroupData("test1",
               "test2", "test3")));
