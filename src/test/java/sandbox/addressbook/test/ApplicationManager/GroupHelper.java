@@ -32,7 +32,6 @@ public class GroupHelper extends HelperBase {
         wd.findElement(By.name("new")).click();
     }
 
-
     public void deleteGroup() {
         wd.findElement(By.name("delete")).click();
     }
