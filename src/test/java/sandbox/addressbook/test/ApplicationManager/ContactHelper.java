@@ -39,8 +39,6 @@ public class ContactHelper extends HelperBase {
         select(By.name("bmonth"), contactData.getBmonth());
         click(By.xpath("//option[@value='January']"));
         type(("byear"), contactData.getByear());
-
-
     }
 
 
@@ -53,8 +51,11 @@ public class ContactHelper extends HelperBase {
 
     }
 
+    public void selectedContact(int index){
+        wd.findElements(By.name("selected[]")).get(index).click();
+    }
+
     public void deleteContact() {
-        click(By.name("selected[]"));
         click(By.xpath("//input[@value='Delete']"));
         closeAlert();
     }

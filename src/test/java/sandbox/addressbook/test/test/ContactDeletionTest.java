@@ -17,6 +17,7 @@ public class ContactDeletionTest extends TestBase {
                     "17", "January", "1985", "test1"));
         }
         int before = appManage.getContactHelper().getContactCount();
+        appManage.getContactHelper().selectedContact(before - 1);
         appManage.getContactHelper().deleteContact();
         appManage.getSessionHelper();
         int after = appManage.getContactHelper().getContactCount();

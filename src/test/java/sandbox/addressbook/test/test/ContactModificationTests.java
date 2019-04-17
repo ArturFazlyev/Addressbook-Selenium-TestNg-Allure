@@ -17,6 +17,7 @@ public class ContactModificationTests extends TestBase {
                     "17", "January", "1985", "test1"));
         }
         int before = appManage.getContactHelper().getContactCount();
+        appManage.getContactHelper().selectedContact(before - 1);
         appManage.getContactHelper().initContactModification();
         appManage.getContactHelper().fillContactForm(new ContactData("James", "Jones",
                 "Jam.Jones", "QA", "Infotecs",
