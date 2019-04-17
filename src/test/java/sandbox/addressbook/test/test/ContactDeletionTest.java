@@ -16,9 +16,12 @@ public class ContactDeletionTest extends TestBase {
                     "89053555178", "james.jones@oldtrafford.com",
                     "17", "January", "1985", "test1"));
         }
+        int before = appManage.getContactHelper().getContactCount();
         appManage.getContactHelper().deleteContact();
         appManage.getSessionHelper();
-        int after = appManage.getGroupHelper().getGroupCount();
+        int after = appManage.getContactHelper().getContactCount();
+
+        Assert.assertEquals(after, before - 1);
 
 
     }
