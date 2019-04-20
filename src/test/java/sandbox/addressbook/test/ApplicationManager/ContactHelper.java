@@ -3,9 +3,13 @@ package sandbox.addressbook.test.ApplicationManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import sandbox.addressbook.test.module.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -51,7 +55,7 @@ public class ContactHelper extends HelperBase {
 
     }
 
-    public void selectedContact(int index){
+    public void selectedContact(int index) {
         wd.findElements(By.name("selected[]")).get(index).click();
     }
 
@@ -79,5 +83,23 @@ public class ContactHelper extends HelperBase {
 
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ContactData> getContactList() {
+
+        List<ContactData> contacts = new ArrayList<>();
+        List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+        for (WebElement elem : elements) {
+
+            String name = elem.findElements(By.tagName("td")).get(2).getText();
+            String lname = elem.findElements(By.tagName("td")).get(1).getText();
+
+            ContactData contact = new ContactData(name, null, lname,
+                    null, null, null, null, null,
+                    null, null, null, null,
+                    null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }
