@@ -4,11 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import sandbox.addressbook.test.module.ContactData;
 
+import java.util.List;
+
 public class ContactCreationTest extends TestBase {
 
     @Test
     public void initContactCreation() {
-       int before = appManage.getContactHelper().getContactCount();
+        List<ContactData> before = appManage.getContactHelper().getContactList();
         appManage.getNavigationHelper().gotoNewContact();
         appManage.getContactHelper().fillContactForm(new ContactData("James", "Jones",
                 "Jam.Jones", "QA", "Infotecs",
@@ -17,9 +19,10 @@ public class ContactCreationTest extends TestBase {
                 "17", "January", "1985", "test1"));
         appManage.getContactHelper().submitNewContact();
         appManage.getContactHelper().returnHomePage();
-        int after = appManage.getContactHelper().getContactCount();
+        List<ContactData> after = appManage.getContactHelper().getContactList();
 
-        Assert.assertEquals(after, before + 1);
+
+        Assert.assertEquals(after.size(), before.size() + 1);
     }
 
 
