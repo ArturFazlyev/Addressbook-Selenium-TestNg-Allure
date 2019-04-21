@@ -63,8 +63,6 @@ public class ContactHelper extends HelperBase {
 
     public void closeAlert() {
         wd.switchTo().alert().accept();
-
-
     }
 
     public void createContact(ContactData contact) {
@@ -75,7 +73,6 @@ public class ContactHelper extends HelperBase {
 
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
-
     }
 
     public int getContactCount() {
@@ -90,7 +87,7 @@ public class ContactHelper extends HelperBase {
 
             String name = elem.findElements(By.tagName("td")).get(2).getText();
             String lname = elem.findElements(By.tagName("td")).get(1).getText();
-            String id = elem.findElement(By.tagName("input")).getAttribute("value");
+            int id = Integer.parseInt(elem.findElement(By.tagName("input")).getAttribute("value"));
 
             ContactData contact = new ContactData(id, name, lname, null,
                     null, null, null, null, null,
