@@ -3,6 +3,7 @@ package sandbox.addressbook.test.module;
 import java.util.Objects;
 
 public class ContactData {
+    private String id;
     private final String firstname;
     private final String lastname;
     private final String nickname;
@@ -17,9 +18,29 @@ public class ContactData {
     private final String byear;
     private String group;
 
+    public ContactData(String id, String firstname, String lastname, String nickname, String title,
+                       String company, String address, String home, String mobile, String email,
+                       String bday, String bmonth, String byear, String group) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.nickname = nickname;
+        this.title = title;
+        this.company = company;
+        this.address = address;
+        this.home = home;
+        this.mobile = mobile;
+        this.email = email;
+        this.bday = bday;
+        this.bmonth = bmonth;
+        this.byear = byear;
+        this.group = group;
+    }
+
     public ContactData(String firstname, String lastname, String nickname, String title,
                        String company, String address, String home, String mobile, String email,
                        String bday, String bmonth, String byear, String group) {
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.nickname = nickname;
@@ -59,6 +80,21 @@ public class ContactData {
         return address;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(firstname, that.firstname) &&
+                Objects.equals(lastname, that.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstname, lastname);
+    }
+
     public String getHome() {
         return home;
     }
@@ -83,24 +119,14 @@ public class ContactData {
         return byear;
     }
 
-    public String getGroup(){
+    public String getGroup() {
         return group;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return Objects.equals(firstname, that.firstname) &&
-                Objects.equals(lastname, that.lastname);
+    public String getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstname, lastname);
-    }
 
     @Override
     public String toString() {
@@ -109,8 +135,6 @@ public class ContactData {
                 ", lastname='" + lastname + '\'' +
                 '}';
     }
-
-
 
 
 }
