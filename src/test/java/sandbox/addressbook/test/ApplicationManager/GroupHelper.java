@@ -20,7 +20,6 @@ public class GroupHelper extends HelperBase {
         click(By.linkText("group page"));
     }
 
-
     public void sumbitCreateGroup() {
         wd.findElement(By.name("submit")).click();
     }
@@ -29,8 +28,6 @@ public class GroupHelper extends HelperBase {
         type("group_name", groupData.getName());
         type("group_header", groupData.getHeader());
         type("group_footer", groupData.getFooter());
-
-
     }
 
     public void initNewGroup() {
@@ -60,10 +57,17 @@ public class GroupHelper extends HelperBase {
         returnToGroupPage();
     }
 
+    public void modifyGroup(int index, GroupData group) {
+        selectGroup(index);
+        initGroupModification();
+        fillGroupFields(group);
+        updateGroup();
+        returnToGroupPage();
+    }
+
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
     }
-
 
     public int getGroupCount() {
         return wd.findElements(By.name("selected[]")).size();

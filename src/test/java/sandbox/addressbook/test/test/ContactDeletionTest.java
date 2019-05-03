@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ContactDeletionTest extends TestBase {
 
-    @Test
+    @Test (enabled = false)
     public void testContactDeletition() {
         if (! appManage.getContactHelper().isThereAContact()){
             appManage.getNavigationHelper().gotoNewContact();

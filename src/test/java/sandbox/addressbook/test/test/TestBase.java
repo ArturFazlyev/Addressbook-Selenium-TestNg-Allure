@@ -1,21 +1,21 @@
 package sandbox.addressbook.test.test;
 
 import org.openqa.selenium.remote.BrowserType;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import sandbox.addressbook.test.ApplicationManager.ApplicationManager;
 
 public class TestBase {
 
-    protected final ApplicationManager appManage = new ApplicationManager(BrowserType.CHROME);
+    protected static ApplicationManager appManage = new ApplicationManager(BrowserType.CHROME);
 
-    @BeforeMethod(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public void setUp() throws Exception {
         appManage.init();
     }
 
 
-    @AfterMethod(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void tearDown() {
         appManage.getSessionHelper().close();
 
