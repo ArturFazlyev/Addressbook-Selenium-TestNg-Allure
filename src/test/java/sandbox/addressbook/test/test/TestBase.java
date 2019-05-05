@@ -7,22 +7,22 @@ import sandbox.addressbook.test.ApplicationManager.ApplicationManager;
 
 public class TestBase {
 
-    protected static ApplicationManager appManage = new ApplicationManager(BrowserType.CHROME);
+    protected static ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() throws Exception {
-        appManage.init();
+        app.init();
     }
 
 
     @AfterSuite(alwaysRun = true)
     public void tearDown() {
-        appManage.getSessionHelper().close();
+        app.getSessionHelper().close();
 
     }
 
 
     public ApplicationManager getAppManage() {
-        return appManage;
+        return app;
     }
 }

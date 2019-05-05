@@ -11,17 +11,17 @@ public class ContactCreationTest extends TestBase {
 
     @Test(enabled = false)
     public void initContactCreation() {
-        List<ContactData> before = appManage.getContactHelper().getContactList();
-        appManage.getNavigationHelper().gotoNewContact();
+        List<ContactData> before = app.getContactHelper().getContactList();
+        app.goTo().gotoNewContact();
         ContactData contact = new ContactData("James", "Jones",
                 "Jam.Jones", "QA", "Infotecs",
                 "Manchester, Stadium Old Trafford", "2780857",
                 "89053555178", "james.jones@oldtrafford.com",
                 "17", "January", "1985", "test1");
-        appManage.getContactHelper().fillContactForm(contact);
-        appManage.getContactHelper().submitNewContact();
-        appManage.getContactHelper().returnHomePage();
-        List<ContactData> after = appManage.getContactHelper().getContactList();
+        app.getContactHelper().fillContactForm(contact);
+        app.getContactHelper().submitNewContact();
+        app.getContactHelper().returnHomePage();
+        List<ContactData> after = app.getContactHelper().getContactList();
 
         contact.setId(after.stream().max((Comparator<ContactData>) (o1, o2)
                 -> Integer.compare(o1.getId(), o2.getId())).get().getId());

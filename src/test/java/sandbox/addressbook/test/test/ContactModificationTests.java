@@ -5,34 +5,33 @@ import org.testng.annotations.Test;
 import sandbox.addressbook.test.module.ContactData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTests extends TestBase {
 
     @Test (enabled = false)
     public void testContactModification(){
-        if (! appManage.getContactHelper().isThereAContact()){
-            appManage.getNavigationHelper().gotoNewContact();
-            appManage.getContactHelper().createContact(new ContactData("James", "Jones",
+        if (! app.getContactHelper().isThereAContact()){
+            app.goTo().gotoNewContact();
+            app.getContactHelper().createContact(new ContactData("James", "Jones",
                     "Jam.Jones", "QA", "Infotecs",
                     "Manchester, Stadium Old Trafford", "2780857",
                     "89053555178", "james.jones@oldtrafford.com",
                     "17", "January", "1985", "test1"));
         }
 
-        List<ContactData> before = appManage.getContactHelper().getContactList();
-        appManage.getContactHelper().selectedContact(before.size() - 1);
-        appManage.getContactHelper().initContactModification();
+        List<ContactData> before = app.getContactHelper().getContactList();
+        app.getContactHelper().selectedContact(before.size() - 1);
+        app.getContactHelper().initContactModification();
         ContactData contact = new ContactData(before.get(before.size() -1).getId(),"James", "Jones",
                 "Jam.Jones", "QA", "Infotecs",
                 "Manchester, Stadium Old Trafford", "2780857",
                 "89053555178", "james.jones@oldtrafford.com", "17",
                 "January", "1985", null);
-        appManage.getContactHelper().fillContactForm(contact);
-        appManage.getContactHelper().submitContactUpdate();
-        appManage.getSessionHelper();
-        List<ContactData> after = appManage.getContactHelper().getContactList();
+        app.getContactHelper().fillContactForm(contact);
+        app.getContactHelper().submitContactUpdate();
+        app.getSessionHelper();
+        List<ContactData> after = app.getContactHelper().getContactList();
 
         Assert.assertEquals(after.size(), before.size());
 
