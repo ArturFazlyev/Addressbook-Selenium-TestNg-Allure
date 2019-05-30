@@ -2,7 +2,7 @@ package sandbox.addressbook.test.test;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import sandbox.addressbook.test.module.ContactData;
+import sandbox.addressbook.test.modele.ContactData;
 
 import java.util.Comparator;
 import java.util.List;

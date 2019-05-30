@@ -3,7 +3,7 @@ package sandbox.addressbook.test.ApplicationManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import sandbox.addressbook.test.module.ContactData;
+import sandbox.addressbook.test.modele.ContactData;
 
 import java.util.ArrayList;
 import java.util.List;

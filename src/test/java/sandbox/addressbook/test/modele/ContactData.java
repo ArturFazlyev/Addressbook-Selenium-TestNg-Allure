@@ -1,4 +1,4 @@
-package sandbox.addressbook.test.module;
+package sandbox.addressbook.test.modele;
 
 import java.util.Objects;
 

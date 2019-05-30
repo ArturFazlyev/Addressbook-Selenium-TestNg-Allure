@@ -2,7 +2,7 @@ package sandbox.addressbook.test.test;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
-import sandbox.addressbook.test.module.GroupData;
+import sandbox.addressbook.test.modele.GroupData;
 
 import java.util.Set;
 
