@@ -3,58 +3,19 @@ package sandbox.addressbook.test.modele;
 import java.util.Objects;
 
 public class ContactData {
-    private int id;
-    private final String firstname;
-    private final String lastname;
-    private final String nickname;
-    private final String title;
-    private final String company;
-    private final String address;
-    private final String home;
-    private final String mobile;
-    private final String email;
-    private final String bday;
-    private final String bmonth;
-    private final String byear;
-    private String group;
-
-    public ContactData(int id, String firstname, String lastname, String nickname, String title,
-                       String company, String address, String home, String mobile, String email,
-                       String bday, String bmonth, String byear, String group) {
-        this.id = Integer.MAX_VALUE;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.title = title;
-        this.company = company;
-        this.address = address;
-        this.home = home;
-        this.mobile = mobile;
-        this.email = email;
-        this.bday = bday;
-        this.bmonth = bmonth;
-        this.byear = byear;
-        this.group = group;
-    }
-
-    public ContactData(String firstname, String lastname, String nickname, String title,
-                       String company, String address, String home, String mobile, String email,
-                       String bday, String bmonth, String byear, String group) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.nickname = nickname;
-        this.title = title;
-        this.company = company;
-        this.address = address;
-        this.home = home;
-        this.mobile = mobile;
-        this.email = email;
-        this.bday = bday;
-        this.bmonth = bmonth;
-        this.byear = byear;
-        this.group = group;
-    }
+    private int id = Integer.MAX_VALUE;
+    private String firstname;
+    private String lastname;
+    private String nickname;
+    private String title;
+    private String company;
+    private String address;
+    private String home;
+    private String mobile;
+    private String email;
+    private String bday;
+    private String bmonth;
+    private String byear;
 
     public String getFirstname() {
         return firstname;
@@ -96,7 +57,7 @@ public class ContactData {
         return bday;
     }
 
-       public String getBmonth() {
+    public String getBmonth() {
         return bmonth;
     }
 
@@ -104,17 +65,74 @@ public class ContactData {
         return byear;
     }
 
-    public String getGroup() {
-        return group;
-    }
-
     public int getId() {
         return id;
     }
 
 
-    public void setId(int id) {
+    public ContactData withId(int id) {
         this.id = id;
+        return this;
+    }
+
+    public ContactData withFirstname(String firstname) {
+        this.firstname = firstname;
+        return this;
+    }
+
+    public ContactData withLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+    public ContactData withNickname(String nickname) {
+        this.nickname = nickname;
+        return this;
+    }
+
+    public ContactData withTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public ContactData withCompany(String company) {
+        this.company = company;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public ContactData withHome(String home) {
+        this.home = home;
+        return this;
+    }
+
+    public ContactData withMobile(String mobile) {
+        this.mobile = mobile;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ContactData withBday(String bday) {
+        this.bday = bday;
+        return this;
+    }
+
+    public ContactData withBmonth(String bmonth) {
+        this.bmonth = bmonth;
+        return this;
+    }
+
+    public ContactData withByear(String byear) {
+        this.byear = byear;
+        return this;
     }
 
     @Override
@@ -138,5 +156,6 @@ public class ContactData {
     public int hashCode() {
         return Objects.hash(firstname, lastname);
     }
+
 
 }
