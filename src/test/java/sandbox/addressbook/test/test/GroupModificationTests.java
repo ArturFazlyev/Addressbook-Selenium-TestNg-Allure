@@ -1,13 +1,10 @@
 package sandbox.addressbook.test.test;
 
-import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sandbox.addressbook.test.modele.GroupData;
 import sandbox.addressbook.test.modele.Groups;
-
-import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.*;

@@ -39,7 +39,7 @@ public class ApplicationManager {
         sessionHelper.login("admin", "secret");
     }
 
-    public ContactHelper getContactHelper() {
+    public ContactHelper contact() {
         return contactHelper;
     }
 

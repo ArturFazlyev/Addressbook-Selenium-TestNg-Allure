@@ -10,7 +10,7 @@ public class NavigationHelper extends HelperBase {
         this.wd = wd;
     }
 
-    public void gotoNewContact() {
+    public void contactPage() {
         click((By.linkText("add new")));
     }
 
