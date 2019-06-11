@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import sandbox.addressbook.test.modele.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -82,6 +84,22 @@ public class ContactHelper extends HelperBase {
     public List<ContactData> list() {
 
         List<ContactData> contacts = new ArrayList<>();
+        List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+        for (WebElement elem : elements) {
+
+            String name = elem.findElements(By.tagName("td")).get(2).getText();
+            String lname = elem.findElements(By.tagName("td")).get(1).getText();
+            int id = Integer.parseInt(elem.findElement(By.tagName("input")).getAttribute("value"));
+
+            contacts.add(new ContactData().withId(id).withFirstname(name)
+                    .withLastname(lname));
+        }
+        return contacts;
+    }
+
+    public Set<ContactData> all() {
+
+        Set<ContactData> contacts = new HashSet<ContactData>();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement elem : elements) {
 
