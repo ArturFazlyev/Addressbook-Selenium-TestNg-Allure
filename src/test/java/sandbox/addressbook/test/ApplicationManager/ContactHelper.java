@@ -63,6 +63,10 @@ public class ContactHelper extends HelperBase {
         closeAlert();
     }
 
+    public void delete(ContactData deletedContact) {
+
+    }
+
     public void closeAlert() {
         wd.switchTo().alert().accept();
     }
@@ -112,4 +116,6 @@ public class ContactHelper extends HelperBase {
         }
         return contacts;
     }
+
+
 }

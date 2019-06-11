@@ -1,16 +1,18 @@
 package sandbox.addressbook.test.test;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
+
 import sandbox.addressbook.test.modele.ContactData;
 
-import java.util.List;
+import java.util.Set;
 
 public class ContactDeletionTest extends TestBase {
 
-    @Test
-    public void testContactDeletition() {
-        if (app.contact().list().size() == 0){
+    @BeforeMethod
+    public void ensurePreconditions() {
+        if (app.contact().list().size() == 0) {
             app.goTo().contactPage();
             ContactData contact = new ContactData().withFirstname("James").withLastname("Jones")
                     .withNickname("Jam.jones").withTitle("QA").withCompany("Infotecs")
@@ -21,18 +23,23 @@ public class ContactDeletionTest extends TestBase {
             app.contact().submitNewContact();
             app.contact().returnHomePage();
         }
-        List<ContactData> before = app.contact().list();
+    }
+
+    @Test
+    public void testContactDeletition() {
+        Set<ContactData> before = app.contact().all();
+        ContactData deletedContact = before.iterator().next();
         int index = before.size() - 1;
-        app.contact().selectedContact(index);
+        app.contact().delete(deletedContact);
         app.contact().deleteContact();
         app.getSessionHelper();
-        List<ContactData> after= app.contact().list();
-        Assert.assertEquals(after.size(), index);
-
-        before.remove(index);
-            Assert.assertEquals(before, after);
-        }
-
-
-
+        Set<ContactData> after = app.contact().all();
+        Assert.assertEquals(after.size(), deletedContact);
+        before.remove(deletedContact);
+        Assert.assertEquals(before, after);
+    }
 }
+
+
+
+

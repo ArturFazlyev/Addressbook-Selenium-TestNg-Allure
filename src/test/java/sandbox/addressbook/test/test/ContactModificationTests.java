@@ -1,6 +1,7 @@
 package sandbox.addressbook.test.test;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sandbox.addressbook.test.modele.ContactData;
 
@@ -9,9 +10,9 @@ import java.util.List;
 
 public class ContactModificationTests extends TestBase {
 
-    @Test
-    public void testContactModification(){
-        if (app.contact().list().size() == 0){
+    @BeforeMethod
+    public void ensurePreconditions() {
+        if (app.contact().list().size() == 0) {
             app.goTo().contactPage();
             ContactData contact = new ContactData().withFirstname("James").withLastname("Jones")
                     .withNickname("Jam.jones").withTitle("QA").withCompany("Infotecs")
@@ -22,7 +23,10 @@ public class ContactModificationTests extends TestBase {
             app.contact().submitNewContact();
             app.contact().returnHomePage();
         }
+    }
 
+    @Test
+    public void testContactModification() {
         List<ContactData> before = app.contact().list();
         int index = before.size() - 1;
         app.contact().selectedContact(index);
@@ -41,11 +45,11 @@ public class ContactModificationTests extends TestBase {
 
         before.remove(index);
         before.add(contact);
-        Comparator<? super ContactData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId()) ;
+        Comparator<? super ContactData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
         before.sort(byId);
         after.sort(byId);
 
-        Assert.assertEquals(before,after);
+        Assert.assertEquals(before, after);
 
     }
 
