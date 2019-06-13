@@ -18,7 +18,7 @@ public class ContactCreationTest extends TestBase {
                 .withNickname("Jam.jones").withTitle("QA").withCompany("Infotecs")
                 .withAddress("Manchester, Stadium Old Trafford").withHome("2780857")
                 .withMobile("89053555178").withEmail("james.jones@oldtrafford.com")
-                .withBday("17").withBmonth("January").withByear("1985");
+                .withBday("17").withByear("1985");
         app.contact().fillContactForm(contact);
         app.contact().submitNewContact();
         app.contact().returnHomePage();
