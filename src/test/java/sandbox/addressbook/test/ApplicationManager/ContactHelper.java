@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import sandbox.addressbook.test.modele.ContactData;
 
-import javax.naming.CompositeName;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -56,10 +54,6 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
     }
 
-    public void selectContact(int index) {
-        wd.findElements(By.name("selected[]")).get(index).click();
-    }
-
     public void selectContactById(int id){
         wd.findElement(By.cssSelector("input[value='"+ id + "']")).click();
     }
@@ -92,7 +86,6 @@ public class ContactHelper extends HelperBase {
     }
 
       public Set<ContactData> all() {
-
         Set<ContactData> contacts = new HashSet<ContactData>();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement elem : elements) {
