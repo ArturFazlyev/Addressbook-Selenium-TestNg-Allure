@@ -51,7 +51,6 @@ public class ApplicationManager {
         return sessionHelper;
     }
 
-
     public GroupHelper group() {
         return groupHelper;
     }

@@ -4,13 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import sandbox.addressbook.test.modele.ContactData;
+import sandbox.addressbook.test.modele.Contacts;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
-
 
     public ContactHelper(WebDriver wd) {
         super(wd);
@@ -47,7 +45,6 @@ public class ContactHelper extends HelperBase {
 
     public void initContactModification() {
         click(By.xpath("//img[@alt='Edit']"));
-
     }
 
     public void deleteSelectedContact(){
@@ -57,7 +54,6 @@ public class ContactHelper extends HelperBase {
     public void selectContactById(int id){
         wd.findElement(By.cssSelector("input[value='"+ id + "']")).click();
     }
-
 
     public void delete (ContactData contact) {
         selectContactById(contact.getId());
@@ -73,6 +69,12 @@ public class ContactHelper extends HelperBase {
         returnHomePage();
     }
 
+    public void addContact(ContactData contact){
+        fillContactForm(contact);
+        submitNewContact();
+        returnHomePage();
+    }
+
     public void closeAlert() {
         wd.switchTo().alert().accept();
     }
@@ -85,8 +87,8 @@ public class ContactHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-      public Set<ContactData> all() {
-        Set<ContactData> contacts = new HashSet<ContactData>();
+      public Contacts all() {
+        Contacts contacts = new Contacts();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
         for (WebElement elem : elements) {
 

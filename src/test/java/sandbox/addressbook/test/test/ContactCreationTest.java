@@ -1,30 +1,31 @@
 package sandbox.addressbook.test.test;
 
-import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 import sandbox.addressbook.test.modele.ContactData;
+import sandbox.addressbook.test.modele.Contacts;
 
 import java.util.Set;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTest extends TestBase {
 
     @Test
     public void initContactCreation() {
-        Set<ContactData> before = app.contact().all();
+        Contacts before = app.contact().all();
         app.goTo().contactPage();
         ContactData contact = new ContactData().withFirstname("James").withLastname("Jones")
                 .withNickname("Jam.jones").withTitle("QA").withCompany("Infotecs")
                 .withAddress("Manchester, Stadium Old Trafford").withHome("2780857")
                 .withMobile("89053555178").withEmail("james.jones@oldtrafford.com")
                 .withBday("17").withByear("1985");
-        app.contact().fillContactForm(contact);
-        app.contact().submitNewContact();
-        app.contact().returnHomePage();
+        app.contact().addContact(contact);
         Set<ContactData> after = app.contact().all();
-
-        contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt());
-        before.add(contact);
-        Assert.assertEquals(before,after);
+        assertThat(after.size(), equalTo(before.size() + 1));
+        assertThat(after,
+                equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) ->
+                        c.getId()).max().getAsInt()))));
     }
 
 
