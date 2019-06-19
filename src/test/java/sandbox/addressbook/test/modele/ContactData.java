@@ -1,5 +1,6 @@
 package sandbox.addressbook.test.modele;
 
+import java.io.File;
 import java.util.Objects;
 
 public class ContactData {
@@ -16,6 +17,11 @@ public class ContactData {
     private String bday;
     private String bmonth;
     private String byear;
+    private File photo;
+
+    public File getPhoto() {
+        return photo;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -69,6 +75,10 @@ public class ContactData {
         return id;
     }
 
+    public ContactData withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
 
     public ContactData withId(int id) {
         this.id = id;

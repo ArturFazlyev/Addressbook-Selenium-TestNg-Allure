@@ -23,20 +23,21 @@ public class ContactHelper extends HelperBase {
     }
 
     public void fillContactForm(ContactData contactData) {
-        type(("firstname"), contactData.getFirstname());
-        type(("lastname"), contactData.getLastname());
-        type(("nickname"), contactData.getNickname());
-        type(("title"), contactData.getTitle());
-        type(("company"), contactData.getCompany());
-        type(("address"), contactData.getAddress());
-        type(("home"), contactData.getHome());
-        type(("mobile"), contactData.getMobile());
-        type(("email"), contactData.getEmail());
+        type(By.name("firstname"), contactData.getFirstname());
+        type(By.name("lastname"), contactData.getLastname());
+        type(By.name("nickname"), contactData.getNickname());
+        type(By.name("title"), contactData.getTitle());
+        type(By.name("company"), contactData.getCompany());
+        type(By.name("address"), contactData.getAddress());
+        type(By.name("home"), contactData.getHome());
+        type(By.name("mobile"), contactData.getMobile());
+        type(By.name("email"), contactData.getEmail());
         click(By.name("bday"));
         click(By.xpath("//option[@value='17']"));
         click(By.name("bmonth"));
         click(By.xpath("//option[@value='January']"));
-        type(("byear"), contactData.getByear());
+        type(By.name("byear"), contactData.getByear());
+        attach(By.name("photo"), contactData.getPhoto());
     }
 
     public void submitContactUpdate() {

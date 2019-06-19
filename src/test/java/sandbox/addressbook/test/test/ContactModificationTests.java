@@ -1,6 +1,5 @@
 package sandbox.addressbook.test.test;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sandbox.addressbook.test.modele.ContactData;
