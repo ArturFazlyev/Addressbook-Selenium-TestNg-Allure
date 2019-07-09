@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="GroupsTest" verbose="1" >
+    <test name="Nopackage" >
+        <classes>
+            <class name="sandbox.addressbook.test.test.GroupCreationTest" />
+            <class name="sandbox.addressbook.test.test.GroupDeletionTest" />
+            <class name="sandbox.addressbook.test.test.GroupModificationTests" />
+        </classes>
+    </test>
+
+    <test name="ContactTest">
+        <classes>
+            <class name="sandbox.addressbook.test.test.ContactCreationTest"/>
+            <class name="sandbox.addressbook.test.test.ContactDeletionTest"/>
+            <class name="sandbox.addressbook.test.test.ContactModificationTests"/>
+        </classes>
+    </test>
+</suite>
