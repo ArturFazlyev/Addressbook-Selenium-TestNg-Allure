@@ -14,6 +14,11 @@ public class ContactHelper extends HelperBase {
         super(wd);
     }
 
+    public void initContactCreation() {
+        click(By.linkText("add new"));
+    }
+
+
     public void returnHomePage() {
         click(By.linkText("home page"));
     }
@@ -73,6 +78,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void addContact(ContactData contact){
+        initContactCreation();
         fillContactForm(contact);
         submitNewContact();
         contactCache = null;

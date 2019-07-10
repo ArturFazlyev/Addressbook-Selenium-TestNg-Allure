@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="GroupsTest" verbose="1" >
-    <test name="Nopackage" >
+<suite name="testng" verbose="1" >
+    <test name="GroupsTest" >
         <classes>
             <class name="sandbox.addressbook.test.test.GroupCreationTest" />
             <class name="sandbox.addressbook.test.test.GroupDeletionTest" />

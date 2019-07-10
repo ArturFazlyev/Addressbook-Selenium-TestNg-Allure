@@ -12,14 +12,13 @@ public class ContactDeletionTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        app.goTo().contactPage();
+        app.goTo().homePage();
         if (app.contact().all().size() == 0) {
-            ContactData contact = new ContactData().withFirstname("James").withLastname("Jones")
+            app.contact().addContact(new ContactData().withFirstname("James").withLastname("Jones")
                     .withNickname("Jam.jones").withTitle("QA").withCompany("Infotecs")
                     .withAddress("Manchester, Stadium Old Trafford").withHome("2780857")
                     .withMobile("89053555178").withEmail("james.jones@oldtrafford.com")
-                    .withByear("1985");
-            app.contact().addContact(contact);
+                    .withByear("1985"));
         }
     }
 

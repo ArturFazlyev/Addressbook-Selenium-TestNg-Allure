@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sandbox.addressbook.test.modele.ContactData;
 import sandbox.addressbook.test.modele.Contacts;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -11,15 +12,13 @@ public class ContactModificationTests extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        app.goTo().contactPage();
+        app.goTo().homePage();
         if (app.contact().all().size() == 0) {
-            ContactData contact = new ContactData().withFirstname("James").withLastname("Jones")
+            app.contact().addContact(new ContactData().withFirstname("James").withLastname("Jones")
                     .withNickname("Jam.jones").withTitle("QA").withCompany("Infotecs")
                     .withAddress("Manchester, Stadium Old Trafford").withHome("2780857")
                     .withMobile("89053555178").withEmail("james.jones@oldtrafford.com")
-                    .withBday("17").withBmonth("January").withByear("1985");
-            app.contact().addContact(contact);
-
+                    .withByear("1985"));
         }
     }
 

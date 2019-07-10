@@ -15,7 +15,7 @@ public class ContactCreationTest extends TestBase {
     @Test
     public void initContactCreation() {
         Contacts before = app.contact().all();
-        app.goTo().contactPage();
+        app.goTo().homePage();
         File photo = new File("src\\test\\java\\sandbox\\addressbook\\test\\resourses\\foto.jpg");
         ContactData contact = new ContactData().withFirstname("James").withLastname("Jones")
                 .withNickname("Jam.jones").withTitle("QA").withCompany("Infotecs")

@@ -10,8 +10,11 @@ public class NavigationHelper extends HelperBase {
         this.wd = wd;
     }
 
-    public void contactPage() {
-        click((By.linkText("add new")));
+    public void homePage() {
+        if (isElementPresent(By.id("maintable"))){
+            return;
+        }
+        click(By.linkText("home"));
     }
 
     public void groupPage() {
