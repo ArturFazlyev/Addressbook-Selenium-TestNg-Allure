@@ -1,5 +1,6 @@
 package sandbox.addressbook.test.test;
 
+import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import sandbox.addressbook.test.modele.ContactData;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -17,28 +19,30 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactCreationTest extends TestBase {
 
     @DataProvider
-    public Iterator<Object[]> validContacts() throws IOException {
+    public Iterator<Object[]> validContactsFromXML() throws IOException {
         List<Object[]> list = new ArrayList<Object[]>();
         BufferedReader reader = new BufferedReader(new FileReader(
-                new File("src/test/java/sandbox/addressbook/test/resourses/contacts.json")));
+                new File("src/test/java/sandbox/addressbook/test/resourses/contacts.xml")));
+        String xml = "";
         String line = reader.readLine();
         while (line != null){
-            String[] split = line.split(";");
-            list.add(new Object[]{new ContactData().withFirstname(split[0]).withLastname(split[1])
-            .withNickname(split[2]).withTitle(split[3]).withHome(split[4])});
+            xml += line;
             line = reader.readLine();
         }
-        return list.iterator();
+        XStream xStream = new XStream();
+        xStream.processAnnotations(ContactData.class);
+        List<ContactData> contact = (List<ContactData>) xStream.fromXML(xml);
+        return contact.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
 
     }
 
 
-    @Test(dataProvider = "validContacts")
+    @Test(dataProvider = "validContactsFromXML")
     public void initContactCreation(ContactData contact) {
         Contacts before = app.contact().all();
         app.goTo().homePage();
         app.contact().addContact(contact);
-        Set<ContactData> after = app.contact().all();
+        Contacts after = app.contact().all();
         assertThat(after.size(), equalTo(before.size() + 1));
 
     }
