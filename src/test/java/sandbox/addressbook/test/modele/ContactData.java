@@ -1,5 +1,6 @@
 package sandbox.addressbook.test.modele;
 
+import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
@@ -11,12 +12,17 @@ import java.util.Objects;
 public class ContactData {
     @XStreamOmitField
     private int id = Integer.MAX_VALUE;
+    @Expose
     private String firstname;
+    @Expose
     private String lastname;
+    @Expose
     private String nickname;
+    @Expose
     private String title;
     private String company;
     private String address;
+    @Expose
     private String home;
     private String mobile;
     private String email;

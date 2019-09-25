@@ -1,5 +1,7 @@
 package sandbox.addressbook.test.test;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -10,7 +12,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -36,6 +37,21 @@ public class ContactCreationTest extends TestBase {
 
     }
 
+    @DataProvider
+    public Iterator<Object[]> validContactsFromJson() throws IOException {
+        List<Object[]> list = new ArrayList<Object[]>();
+        BufferedReader reader = new BufferedReader(new FileReader(
+                new File("src/test/java/sandbox/addressbook/test/resourses/contacts.json")));
+        String json = "";
+        String line = reader.readLine();
+        while (line != null){
+            json += line;
+            line = reader.readLine();
+        }
+        Gson gson = new Gson();
+        List<ContactData> contact = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType());
+        return contact.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
+    }
 
     @Test(dataProvider = "validContactsFromXML")
     public void initContactCreation(ContactData contact) {
