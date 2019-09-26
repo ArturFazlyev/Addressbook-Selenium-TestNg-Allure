@@ -1,10 +1,10 @@
-package sandbox.addressbook.test.ApplicationManager;
+package addressbook.test.ApplicationManager;
 
+import addressbook.test.model.Groups;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import sandbox.addressbook.test.modele.GroupData;
-import sandbox.addressbook.test.modele.Groups;
+import addressbook.test.model.GroupData;
 
 import java.util.List;
 

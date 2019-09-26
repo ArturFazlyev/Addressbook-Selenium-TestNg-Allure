@@ -1,8 +1,8 @@
-package sandbox.addressbook.test.test;
+package addressbook.test.test;
 
+import addressbook.test.model.GroupData;
+import addressbook.test.model.Groups;
 import org.testng.annotations.Test;
-import sandbox.addressbook.test.modele.GroupData;
-import sandbox.addressbook.test.modele.Groups;
 
 import java.sql.*;
 

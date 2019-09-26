@@ -1,4 +1,4 @@
-package sandbox.addressbook.test.ApplicationManager;
+package addressbook.test.ApplicationManager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

@@ -1,4 +1,4 @@
-package sandbox.addressbook.test.ApplicationManager;
+package addressbook.test.ApplicationManager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
