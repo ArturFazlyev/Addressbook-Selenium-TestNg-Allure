@@ -15,6 +15,7 @@ import java.util.Objects;
 
 public class ContactData {
     @XStreamOmitField
+    @Expose
     @Id
     @Column(name = "id")
     private int id = Integer.MAX_VALUE;
@@ -51,10 +52,6 @@ public class ContactData {
     private String byear;
     @Transient
     private String photo;
-
-    public File getPhoto() {
-        return new File(photo);
-    }
 
     public String getFirstname() {
         return firstname;

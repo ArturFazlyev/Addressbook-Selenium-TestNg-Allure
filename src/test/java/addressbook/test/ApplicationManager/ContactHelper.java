@@ -42,7 +42,6 @@ public class ContactHelper extends HelperBase {
         click(By.name("bmonth"));
         click(By.xpath("//option[@value='January']"));
         type(By.name("byear"), contactData.getByear());
-        attach(By.name("photo"), contactData.getPhoto());
     }
 
     public void submitContactUpdate() {
