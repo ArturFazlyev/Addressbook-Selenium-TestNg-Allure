@@ -100,7 +100,7 @@ public class ContactHelper extends HelperBase {
 
       public Contacts all() {
         if (contactCache != null){
-            return new Contacts();
+            return new Contacts(contactCache);
         }
 
         contactCache = new Contacts();
@@ -112,7 +112,7 @@ public class ContactHelper extends HelperBase {
             contactCache.add(new ContactData().withId(id).withFirstname(name)
                     .withLastname(lname));
         }
-        return new Contacts();
+        return contactCache;
     }
 
 
