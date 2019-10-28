@@ -26,13 +26,15 @@ public class ApplicationManager {
     public ApplicationManager(String browser) {
         this.browser = browser;
         properties = new Properties();
+        System.out.println(browser);
+
     }
 
     public void init() throws IOException {
 
         properties.load(new FileReader(new File(String
                 .format("src\\test\\java\\addressbook\\test\\resourses\\local.properties"))));
-        System.out.println(browser);
+        dbHelper = new DbHelper();
 
         if (browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
@@ -51,7 +53,6 @@ public class ApplicationManager {
         sessionHelper.login(properties.getProperty("web.adminLogin"),
                 properties.getProperty("web.adminPassword") );
 
-        dbHelper = new DbHelper();
     }
 
     public ContactHelper contact() {

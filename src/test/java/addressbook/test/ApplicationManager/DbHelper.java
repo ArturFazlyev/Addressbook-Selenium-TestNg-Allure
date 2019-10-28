@@ -1,6 +1,8 @@
 package addressbook.test.ApplicationManager;
 
 
+import addressbook.test.model.ContactData;
+import addressbook.test.model.Contacts;
 import addressbook.test.model.GroupData;
 import addressbook.test.model.Groups;
 import org.hibernate.Session;
@@ -32,4 +34,18 @@ public class DbHelper {
         session.close();
         return new Groups(result);
     }
+
+    public Contacts contacts(){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        List<ContactData> result = session.createQuery( "from ContactData" ).list();
+        for ( ContactData contact : result ) {
+            System.out.println(contact);
+        }
+        session.getTransaction().commit();
+        session.close();
+        return new Contacts(result);
+
+    }
+
 }
