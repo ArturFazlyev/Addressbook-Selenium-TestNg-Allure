@@ -29,6 +29,7 @@ public class ContactModificationTests extends TestBase {
         ContactData contact = new ContactData().withId(modifiedContact.getId())
                 .withFirstname("James").withLastname("Jones")
                 .withNickname("Jam.jones");
+        app.goTo().homePage();
         app.contact().modify(contact);
         Contacts after = app.db().contacts();
         assertThat(after.size(), equalTo(before.size()));

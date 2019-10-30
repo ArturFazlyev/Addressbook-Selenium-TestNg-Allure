@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import addressbook.test.model.ContactData;
 import addressbook.test.model.Contacts;
 
+import java.sql.Time;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
@@ -54,17 +55,17 @@ public class ContactHelper extends HelperBase {
 
     public void deleteSelectedContact(){
         click(By.xpath("//input[@value='Delete']"));
+        closeAlert();
     }
 
     public void selectContactById(int id){
-        wd.findElement(By.cssSelector("input[value='"+ id + "']")).click();
+        click(By.cssSelector("input[value='"+ id + "'][type='checkbox']"));
     }
 
     public void delete (ContactData contact) {
         selectContactById(contact.getId());
         deleteSelectedContact();
         contactCache = null;
-        closeAlert();
     }
 
     public void modify(ContactData contact){

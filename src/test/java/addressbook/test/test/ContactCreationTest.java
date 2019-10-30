@@ -56,10 +56,10 @@ public class ContactCreationTest extends TestBase {
 
     @Test(dataProvider = "validContactsFromXML")
     public void initContactCreation(ContactData contact) {
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         app.goTo().homePage();
         app.contact().addContact(contact);
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertThat(after.size(), equalTo(before.size() + 1));
 
     }
