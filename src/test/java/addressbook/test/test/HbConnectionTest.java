@@ -10,6 +10,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.List;
 
 public class HbConnectionTest {
@@ -20,15 +21,20 @@ public class HbConnectionTest {
     @BeforeMethod
     protected void setUp() throws Exception {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure()
+                .configure(new File("src\\" +
+                        "test\\resourses\\hibernate.cfg.xml"))
                 .build();
-        try {
-            sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+        sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        try{
+
+        } finally {
+            session.close();
         }
     }
+
 
     @Test
     public void testGroupHbConnection(){

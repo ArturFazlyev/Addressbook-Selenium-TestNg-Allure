@@ -11,6 +11,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import java.io.File;
 import java.util.List;
 
 public class DbHelper {
@@ -18,9 +19,18 @@ public class DbHelper {
 
     public DbHelper() {
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure()
+                .configure(new File("src\\" +
+                        "test\\resourses\\hibernate.cfg.xml"))
                 .build();
          sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
+
+        Session session = sessionFactory.openSession();
+
+        try{
+
+        } finally {
+            session.close();
+        }
     }
 
     public Groups groups(){
