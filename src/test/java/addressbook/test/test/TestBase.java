@@ -1,5 +1,8 @@
 package addressbook.test.test;
 
+import addressbook.test.ApplicationManager.ApplicationManager;
+import addressbook.test.model.ContactData;
+import addressbook.test.model.Contacts;
 import addressbook.test.model.GroupData;
 import addressbook.test.model.Groups;
 import org.openqa.selenium.remote.BrowserType;
@@ -9,7 +12,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import addressbook.test.ApplicationManager.ApplicationManager;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -54,14 +56,27 @@ public class TestBase {
     }
 
     public void verifyGroupListInUI() {
-        if (Boolean.getBoolean("verifyUI")){
+        if (Boolean.getBoolean("verifyUI")) {
             Groups dbGroups = app.db().groups();
             Groups uiGroups = app.group().all();
-            assertThat(uiGroups,equalTo(dbGroups.stream().map((g)
+            assertThat(uiGroups, equalTo(dbGroups.stream().map((g)
                     -> new GroupData().withId(g.getId()).withName(g.getName()))
                     .collect(Collectors.toSet())));
         }
 
-
     }
+
+    public void verifyContactListInUI () {
+        if (Boolean.getBoolean("verifyUI")) {
+            Contacts dbContacts = app.db().contacts();
+            Groups uiContacts = app.group().all();
+            assertThat(uiContacts, equalTo(dbContacts.stream().map((c)
+                    -> new ContactData()
+                    .withFirstname(c.getFirstname()).withLastname(c.getLastname()))
+                    .collect(Collectors.toSet())));
+        }
+    }
+
+
 }
+
