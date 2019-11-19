@@ -29,6 +29,7 @@ public class ContactCreationTest extends TestBase {
         while (line != null){
             xml += line;
             line = reader.readLine();
+
         }
 
         XStream xStream = new XStream();
