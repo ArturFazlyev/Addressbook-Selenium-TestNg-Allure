@@ -20,6 +20,7 @@ public class ContactDataGenerator {
     @Parameter(names = "-c", description = "Contact count")
     public int count;
 
+
     @Parameter(names = "-f", description = "Target file")
     public String file;
 
