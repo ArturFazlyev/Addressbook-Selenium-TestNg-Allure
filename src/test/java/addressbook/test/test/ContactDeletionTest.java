@@ -20,6 +20,7 @@ public class ContactDeletionTest extends TestBase {
                     .withMobile("89053555178").withEmail("james.jones@oldtrafford.com")
                     .withByear("1985"));
         }
+
     }
 
     @Test
