@@ -23,7 +23,7 @@
                 <version>2.17</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>C:\Users\Артур\Desktop\java\src\test\resourses\testng.xml</suiteXmlFile>
+                        <suiteXmlFile>C:\Users\Артур\Desktop\java-autotest\java\src\test\resourses\testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
