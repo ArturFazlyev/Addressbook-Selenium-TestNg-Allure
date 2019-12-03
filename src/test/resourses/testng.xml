@@ -13,7 +13,6 @@
         <classes>
             <class name="addressbook.test.test.ContactCreationTest"/>
             <class name="addressbook.test.test.ContactDeletionTest"/>
-            <class name="addressbook.test.test.ContactModificationTests"/>
         </classes>
     </test>
     <test name="DataBaseTest">
