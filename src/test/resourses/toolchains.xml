@@ -1,0 +1,12 @@
+<toolchains>
+    <toolchain>
+        <type>jdk</type>
+        <provides>
+            <version>1.8.0</version>
+            <vendor>jdk</vendor>
+        </provides>
+        <configuration>
+            <jdkHome>D:\java\jdk\bin</jdkHome>
+        </configuration>
+    </toolchain>
+</toolchains>
