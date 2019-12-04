@@ -2,7 +2,7 @@
     <toolchain>
         <type>jdk</type>
         <provides>
-            <version>1.8.0</version>
+            <version>1.7</version>
             <vendor>jdk</vendor>
         </provides>
         <configuration>
