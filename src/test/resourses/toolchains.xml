@@ -3,7 +3,7 @@
         <type>jdk</type>
         <provides>
             <version>1.7</version>
-            <vendor>jdk</vendor>
+            <vendor>openjdk</vendor>
         </provides>
         <configuration>
             <jdkHome>D:\java\jdk\bin</jdkHome>

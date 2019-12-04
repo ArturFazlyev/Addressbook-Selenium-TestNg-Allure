@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import addressbook.test.model.ContactData;
 import addressbook.test.model.Contacts;
 
-import java.sql.Time;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
