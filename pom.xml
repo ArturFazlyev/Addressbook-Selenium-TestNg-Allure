@@ -10,7 +10,9 @@
     <properties>
         <jre.level>1.8</jre.level>
         <jdk.level>1.8</jdk.level>
+        <target>${target}</target>
     </properties>
+
 
     <build>
         <plugins>
@@ -31,6 +33,7 @@
                         <suiteXmlFile>src\test\resourses\testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
+
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

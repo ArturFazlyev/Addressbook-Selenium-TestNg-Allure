@@ -35,9 +35,9 @@ public class ApplicationManager {
     }
 
     public void init() throws IOException {
-
+        String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String
-                .format("src\\test\\java\\addressbook\\test\\resourses\\local.properties"))));
+                .format("src/test/java/addressbook/test/resourses/%s.properties", target))));
         dbHelper = new DbHelper();
 
         if ("".equals(properties.getProperty("selenium.server"))) {
