@@ -39,10 +39,7 @@ public class ApplicationManager {
         properties.load(new FileReader(new File(String
                 .format("src/test/java/addressbook/test/resourses/%s.properties", target))));
         dbHelper = new DbHelper();
-
         if ("".equals(properties.getProperty("selenium.server"))) {
-
-
             if (browser.equals(BrowserType.FIREFOX)) {
                 wd = new FirefoxDriver();
             } else if (browser.equals(BrowserType.CHROME)) {
@@ -56,7 +53,6 @@ public class ApplicationManager {
             wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
         }
 
-
         wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         wd.get(properties.getProperty("web.baseUrl"));
         contactHelper = new ContactHelper(wd);
@@ -65,7 +61,6 @@ public class ApplicationManager {
         groupHelper = new GroupHelper(wd);
         sessionHelper.login(properties.getProperty("web.adminLogin"),
                 properties.getProperty("web.adminPassword") );
-
     }
 
     public ContactHelper contact() {
