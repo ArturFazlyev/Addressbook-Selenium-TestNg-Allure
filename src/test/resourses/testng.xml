@@ -14,6 +14,7 @@
             <class name="addressbook.test.test.ContactCreationTest"/>
             <class name="addressbook.test.test.ContactDeletionTest"/>
 
+
         </classes>
     </test>
     <test name="DataBaseTest">
