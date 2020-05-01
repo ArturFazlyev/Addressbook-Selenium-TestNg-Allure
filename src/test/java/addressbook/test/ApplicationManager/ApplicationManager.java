@@ -14,6 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -51,7 +52,10 @@ public class ApplicationManager {
             }
         } else {
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setBrowserName(browser);
+            capabilities.setBrowserName("chrome");
+            capabilities.setVersion("81.0");
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("screenResolution", "1920x1080x24");
             wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
         }
 
@@ -63,7 +67,7 @@ public class ApplicationManager {
         sessionHelper = new SessionHelper(wd);
         groupHelper = new GroupHelper(wd);
         sessionHelper.login(properties.getProperty("web.adminLogin"),
-                properties.getProperty("web.adminPassword") );
+                properties.getProperty("web.adminPassword"));
     }
 
     public ContactHelper contact() {
@@ -82,11 +86,11 @@ public class ApplicationManager {
         return groupHelper;
     }
 
-    public DbHelper db(){
+    public DbHelper db() {
         return dbHelper;
     }
 
-    public byte[] takeScreenshot(){
+    public byte[] takeScreenshot() {
         return ((TakesScreenshot) wd).getScreenshotAs(OutputType.BYTES);
     }
 }
